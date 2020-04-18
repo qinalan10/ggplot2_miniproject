@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 library(tidyverse)
 library(ggplot2)
-ibm.data = read_csv('/Users/alanqin/Documents/School/stat385/IBM_miniproject/WA_Fn-UseC_-HR-Employee-Attrition.csv')
+ibm.data = read_csv('/Users/alanqin/Documents/School/stat385/ggplot2_miniproject/IBM_miniproject/WA_Fn-UseC_-HR-Employee-Attrition.csv')
 ```
 \newpage
 
@@ -33,7 +33,7 @@ This data set is about
 
 * The attrition rate of IBM employees 
 * The many different factors that may affect attrition rate
-* more filler 
+* Types of jobs in IBM 
 
 # Fixing and Cleaning Data 
 ```{r, eval = FALSE}
@@ -120,7 +120,7 @@ ggplot(data = x, aes(x = reorder(JobRole, avgInc), y = avgInc)) +
   labs(y = 'Average Monthly Income', x = 'Job Role')
 ```
 
-In this plot, I believe there weren't too many suprises and the results were relatively predictable. The one thing that suprised me was the fact that Healthcare Representatives made more money than Manufacturing Directors. This is because 
+In this plot, I believe there weren't too many suprises and the results were relatively predictable. The one thing that suprised me was the fact that Healthcare Representatives made more money than Manufacturing Directors. This is because I assumed that managers or directors would make more money than your average worker at the company. 
 
 ***
 
@@ -132,7 +132,21 @@ In this plot, I believe there weren't too many suprises and the results were rel
 pie = ggplot(ibm.data, aes(x = "", fill = as.factor(JobSatisfaction))) + 
   geom_bar(width = 1) + 
   theme(axis.line = element_blank(), plot.title = element_text(hjust = .5)) + 
-  labs(fill = 'JobSatisfaction', x=NULL, y = NULL)
+  labs(fill = 'Job Satisfaction', x=NULL, y = NULL) + 
+  ggtitle('Pie Chart of Employee Satisfaction')
 pie + coord_polar(theta = 'y', start =0)
 ```
+
+This plot is very self explanatory in the fact that it shows that the proportion of employees that are satisfied with
+their job. The levels for job satisifcation are 1 is low, 2 is medium, 3 is high, and 4 is very high. As you can see,
+the majority of employees reported a score of 2, 3, or 4 which means that a high percentage of people are satisified 
+with their jobs. 
+
+
+
+
+
+
+
+
 
